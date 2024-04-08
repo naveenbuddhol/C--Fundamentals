@@ -1,0 +1,1431 @@
+Learning Path 
+ 
+ 
+1️⃣ Essentials 
+ 
+ 
+👉 C# basics 
+👉 C# intermediate: Classes, Interfaces and Object-oriented programming 
+👉 C# advanced 
+ 
+ 
+2️⃣ Mobile Development 
+ 
+ 
+👉 Xamarin Forms 
+ 
+ 
+3️⃣ Web backend Development 
+ 
+ 
+👉 Entity Framework 6 
+👉 ASP.NET MVC 5 
+ 
+ 
+4️⃣ Optional but recommended 
+ 
+ 
+👉 Double your coding speed 
+👉 Clean Code: The Art of writing beautiful c# Code 
+👉 Unit Testing C# Code 
+ 
+ 
+ 
+ 
+Introduction 
+ 
+ 
+👉 Differnce between C# and .NET 
+   C# is a programming language, .NET is a framework for building applications on windows 
+   .NET framework is not limited to C# language, there are different languages that will  
+   use .NET framework to build applications like F#, VB.NET 
+ 
+ 
+   What is .NET framework ? 
+   .NET framework consists of two components CLR(Common Language Run-time) and Class Library  
+   for building applications  
+ 
+ 
+👉 CLR (Common Language Run-time) 
+   When C# code is compiled it is converted to IL code (Intermediate Language Code) this code 
+   is independent of which device it is running on, it can run on any device(windows, linux etc) 
+   provided machine has CLR(Common Language Runtime). 
+ 
+ 
+   CLR is responsible or it translates IL code to native code which machine understands. This 
+   process of translating IL code to native code is called JIT (Just-in-time) Compilation. 
+ 
+ 
+👉 Architecture of .NET applications (Classes, Namespaces, Assemblies) 
+   .NET application is building blocks of classes which collaborate with each other and provide 
+   some functionality. 
+ 
+ 
+   Class is a container which has Data also called attributes and Methods which has behaviour 
+ 
+ 
+   Namespace is a container for related classes, for example we have Namespaces for working 
+   with graphics, we have Namespaces for working with security. 
+ 
+ 
+   In real world application as these Namespaces grow we need to seperate related Namespaces  
+   into assemblies. 
+ 
+ 
+   An Assembly could be an executable file or DLL (Dynamically Linked Library) that contains 
+   one or more Namespaces and classes. 
+ 
+ 
+   EXE file is a program that can be executed and DLL is a file that includes code and can be 
+   reused across different programs.  
+ 
+ 
+   So an application is collection of Assemblies. So when we compile our application, compiler  
+   builds one or more assemblies depending on how we partitioned our application 
+    
+👉 Summary 
+   C# is language, .NET is framework 
+   .NET framework is used by other languages also like F# and VB.NET 
+   .NET framework consists of two components 
+     1. CLR (Common Language Runtime) 
+     2. Class Library 
+    CLR does translation from IL(Intermediate Language) code to native code. 
+    With CLR C# is independent of machine, it can run on any device. 
+   .NET Architecture 
+   In .NET we have classes which is container for attributes and Methods, 
+   Namespace is container of related classes. 
+   Assembly is container of related Namespaces. 
+   An application is collection of assemblies and when we compile our application, compiler builds  
+   one or more assembiles based on how we partitioned our application. 
+ 
+ 
+🚀 First C# application 
+ 
+ 
+   Console Application - It is a simple application that does not have GUI 
+ 
+ 
+   Command to start a console application 
+   dotnet new console -o app to create new console app 
+   dotnet run to run app 
+   dotnet build to compile app 
+ 
+ 
+👉 Primitive Types and Expressions 
+ 
+ 
+   Variables and Constants -  
+   Variable is a name given to a storage location in memory 
+   Constant is an immutable value 
+ 
+ 
+   In C# to declare a Variable we start with type followed by variable, semicolon 
+   ex:- int number; 
+ 
+ 
+   C# is case sensitive 
+   ex:- int Number = 1; 
+ 
+ 
+   above two variables Number and number are different 
+   ex:- const float pi = 3.14f; 
+ 
+ 
+   we cannot use variables unless we initialize them. 
+ 
+ 
+   we cannot define constant without setting its value. 
+ 
+ 
+   identifiers/variable names cannot start with number, 1route identifier is invalid 
+   identifier cannot include space in its name, first name is not valid identifier 
+   identifier cannot be reserved keyword, like int is not valid identifier, if we want 
+   to use an identifier that clashes with reserved keyword, we can prefix with @ like 
+   @int. 
+ 
+ 
+   Naming conventions 
+   1. Camel Case - firstName 
+   2. Pascal Case - FirstName 
+   3. Hungarian Notation - strFirstName // we prefix name of the variable with data type 
+ 
+ 
+   Hungarian Notation is not used in C# 
+ 
+ 
+   In C# for local variables use Camel Case 
+   ex:- int number; 
+   for Constants use Pascal Case 
+   ex:- const int MaxZoom = 5; 
+ 
+ 
+   C# keywords are always lowercase 
+ 
+ 
+   Primitive Types - most commonly used Primitive types in C# 
+   Integral Numbers 
+   1. C# - byte, .NET - Byte, 1Byte, 0-255 
+   2. C# - short, .NET - Int16, 2Bytes, -32,768 to 32,767 
+   3. C# - int, .NET - Int32, 4Bytes, -2.1B to 2.1B 
+   4. C# - long, .NET - Int64, 8Bytes, ... 
+   Real Numbers 
+   1. C# - float, .NET - Single, 4Bytes, -3.4*10^38 to 3.4*10^38 
+   2. C# - double, .NET - Double, 8Bytes, ... 
+   3. C# - decimal, .NET - Decimal, 16Bytes, -7.9*10^28 to 7.9*10^28 
+   Character 
+   1. C# - char, .NET - Char, 2Bytes, unicode characters 
+   Boolean 
+   1. C# - bool, .NET - Boolean, 1Byte, True/False 
+ 
+ 
+   ex:- 
+   float number = 1.2f; // explicitly we need to tell compiler that it is float number 
+   by adding suffix f 
+ 
+ 
+   ex:- 
+   decimal number = 2.4m; // explicitly we need to tell compiler that it is float number 
+   by adding suffix machine 
+ 
+ 
+   Non Primitive Types 
+   1. String 
+   2. Array 
+   3. Enum 
+   4. Class 
+ 
+ 
+   Overflowing:- 
+   byte number = 255; 
+   number = number + 1; // 0 
+ 
+ 
+   byte range is 0-255 if we add 1 to number it will output 0 but not 256 since its max  
+   value is 255, this concept is called Overflowing 
+ 
+ 
+   Scope:-  
+   Scope is nothing but accesibility of a variable or constant 
+    
+   Variables and Constants :-  
+            byte number = 4; 
+            int count = 10; 
+            float price = 20.45f; 
+            decimal stock = 154.2166m; 
+            char charcter = 'n'; 
+            string firstName = "naveen"; 
+            bool isWorking = false; 
+ 
+ 
+   we can define variables with var keyword, with this system will identify the date type 
+   of variable based on value. 
+            var pokemon = "Pickachu"; 
+ 
+ 
+   Type Conversion:- 
+   1. implicit type Conversion 
+      byte b = 1; 
+      int i = b; 
+   2. explicit type Conversion 
+      float f = 14.25f; 
+      int i = (int)f; 
+   3. Conversion between non compatible types 
+      string s = "231"; 
+      int i = (int)s; // won't compile  
+      int i = Convert.ToInt32(s); 
+      int j = int.Parse(s); 
+       
+   Operators:- 
+   1. Arithmetic Operators (+,-,*,/,%, increment, decrement) 
+   2. Logical Operators (&&, ||, !) 
+   3. Comparison Operators (==, <, >, !=, <=, >=) 
+   4. Assignment Operators (=, +=, -=, *=, /=) 
+   5. Bitwise Operators (&, |) 
+ 
+ 
+   Comments are written for whys, hows, constraints etc, but not whats 
+ 
+ 
+   🚀 Non Primitive Types 
+ 
+ 
+      Classes:- 
+      Classes are building blocks of application, 
+      Class combines related variables (fields) and functions (methods) 
+      Ex:- 
+      class Person { 
+         Name: string; 
+         Age: byte; 
+         Height: float; 
+         Weight: byte; 
+         Walk(); 
+         Talk(); 
+         Eat(); 
+         Sleep(); 
+      } 
+      Class is a type or blueprint from which we create objects. 
+      Object is an instance of class. 
+ 
+ 
+      Declaring class in C#; 
+ 
+ 
+      public class Person { 
+         public string Name; 
+ 
+ 
+         public void Introduce() { 
+            Console.WriteLine("Hi, my name is "+ Name); 
+         } 
+      } 
+ 
+ 
+      public class Calculator  
+      { 
+         public int Add(int a, int b) 
+         { 
+            return a + b; 
+         } 
+      } 
+ 
+ 
+      Creating objects :- 
+      Person person = new Person(); 
+ 
+ 
+      we can also create objects as follows 
+      var person = new Person(); 
+      person.Name = "Naveen"; 
+      person.Introduce(); 
+ 
+ 
+      Static Modifier 
+      public class Calculator  
+      { 
+         public static int Add(int a, int b) 
+         { 
+            return a + b; 
+         } 
+      } 
+ 
+ 
+      with static Modifier we need not to create object, we can directly access 
+      class methods as follows. 
+ 
+ 
+      int sum = Calculator.Add(4,6); 
+ 
+ 
+      why do we need static modifier ? 
+      when we don't have static modifier, Add() method will be available in memory 
+      of each object. 
+      With static modifier Add() method will be only in one place in memory and that 
+      is Calculator class itself. 
+      We use static modifier concept when we need single instance of method should  
+      available in memory.  
+      Static member of the class whether it is field or method will be accesible from  
+      class itself, not an object. 
+ 
+ 
+ 
+ 
+      Structs:- 
+      In C# we also another type called structure which is similar to class 
+       
+      public struct RgbColor { 
+         public int Red; 
+         public int Green; 
+         public int Blue; 
+      } 
+ 
+ 
+      99% we use classes for defining types, it is recommended to use struct only for  
+      light weight objects like RgbColor or Point which has X and Y. 
+ 
+ 
+      Arrays:- 
+      Declaring arrays in C#, an array is object 
+      int[] numbers = new int[3]; 
+ 
+ 
+      when we declare an array all the elements are set to default value of that datatype, 
+      in this case 0. 
+      in case of boolen it will be false.  
+      numbers[0] = 1; 
+      numbers[1] = 2; 
+      numbers[2] = 3; 
+ 
+ 
+      int[] numbers = new int[3]{1,2,3}; 
+ 
+ 
+      var flags = new bool[3]; 
+ 
+ 
+      Strings:- 
+      sequence of characters enclosed in ""; 
+ 
+ 
+      string firstName = "Naveen"; 
+      string lastName = "Buddhol"; 
+ 
+ 
+      string name = firstName + " " + lastName; 
+ 
+ 
+      string name =  string.Format("{0} {1}", firstName, lastName) 
+ 
+ 
+      string list = string.Join(",", numbers); 
+ 
+ 
+      char firstChar = name[0]; 
+ 
+ 
+      Strings are immutable, once we create them, we can't change them. 
+ 
+ 
+      Escape characters in C# 
+      \n - newline 
+      \t - tab 
+      \\ - backslash 
+      \' - single quotation mark 
+      \" - double quotation mark 
+ 
+ 
+      Verbatim Strings 
+ 
+ 
+      string path = "c:\\projects\\project1\\folder1"; 
+      string path = @"c:\projects\project1\folder1"; // verbatim strings 
+ 
+ 
+      Enums:- 
+      An Enum is data type that represent set of name/value pairs (constans) 
+       
+      const int RegularAirMail = 1; 
+      const int RegisteredAirMail = 2; 
+      const int Express = 3; 
+ 
+ 
+      public enum ShippingMethod { 
+         RegularAirMail = 1, 
+         RegisteredAirMail = 2, 
+         Express = 3 
+      } 
+ 
+ 
+      use enum where we have number of related constants, instead of declaring  
+      multiple constants declare an enum 
+ 
+ 
+      var method = ShippingMethod.Express; 
+ 
+ 
+      parsing in programming is taking string and converting to required datatype 
+ 
+ 
+      Reference Types and Value Types:- 
+      Different data types we have seen in C# are 
+      Primitive Types 
+      -byte 
+      -short 
+      -int 
+      -long 
+      -float 
+      -double 
+      -decimal 
+      -char 
+      -bool 
+      Non Primitive Types 
+      -string 
+      -class 
+      -struct 
+      -enum 
+      -arrays 
+ 
+ 
+      Essentially we have two types from which we create new types, 
+      every type we learned so far is either a Structure or Class 
+      - Structures 
+        All Primitive types are structures, they are internally defined as structures in.NET 
+        we can also create custom structures. 
+ 
+ 
+        Structures are value types 
+        Allocated on stack 
+        Memory allocation done automatically 
+        removed immediately when out of scope 
+ 
+ 
+        In Value types value is copied and variables are independent. 
+      - Classes 
+        Arrays, Strings are classes, 
+        we can also create custom classes 
+  
+        Classes are reference types 
+        we need to allocate memory using new operator 
+        memory allocated on heap 
+        Garbage collected by CLR (Common Language Run-time) 
+ 
+ 
+        In Reference types address is copied, change in value of one variable will effect other 
+ 
+ 
+   👉 Control Flow 
+ 
+ 
+      Conditional Statements:- 
+      In C# we have two types of conditional Statements 
+ 
+ 
+      1. if/else Statements 
+      2. switch case Statements 
+ 
+ 
+      and we also have conditional operator 
+      a ? b : c 
+ 
+ 
+      Iteration Statements:- 
+      In C# we have four iteration Statements 
+ 
+ 
+      1. For loops 
+      2. Foreach loops // is used to iterate over innumerable object (list or array nature, like string) 
+      3. While loops 
+      4. Do-While loops 
+ 
+ 
+      foreach(var number in numbers){ 
+         ... 
+      } 
+ 
+ 
+      Break and Continue:- 
+      Break: jumps out of the loops 
+      continue: skips current iteration and jumps to next iteration 
+ 
+ 
+      Random Class:- 
+      used to generate random number 
+ 
+ 
+      Arrays and Lists:- 
+      Multi Dimensional Arrays 
+      We have two types of multi dimensional arrays 
+      1. Rectangular (each row has exact same number of columns) 
+      2. Jagged (number of columns in each row can be different) 
+ 
+ 
+      Syntax to declare 2D array 
+ 
+ 
+      var matrix = new int[3,5]; 
+ 
+ 
+      var matrix = new int[3,5] {{1,2,3,4,5},{6,7,8,9,10},{11,12,13,14,15}}; 
+ 
+ 
+      var element = matrix[0, 0]; // to access element in 2D array 
+ 
+ 
+      var colors = new int[3,5,4]; 
+ 
+ 
+      Syntax to declare Jagged array 
+ 
+ 
+      var array = new int[3][]; 
+      array[0] = new int[4]; 
+      array[0] = new int[5]; 
+      array[0] = new int[3]; 
+ 
+ 
+      In C# Array type is a class which looks as follows 
+ 
+ 
+      class Array { 
+         Length; // field 
+         Clear(); // method 
+         Copy(); // method 
+         IndexOf(); // method 
+         Reverse(); // method 
+         Sort();// method 
+      }   
+ 
+ 
+      we can access Length property on array where as other properties or methods are 
+      accessed on Array class. 
+ 
+ 
+      If method/field is accessed on class itself means it is a static method, otherwise it 
+      is not static and accessed on object itself. 
+ 
+ 
+      Lists:- 
+      In C# arrays are of fixed size, once size is assigned to array we cannot change 
+      But there are situations we need to work with number of objects but not know that number 
+      ahead of time, thats were we use lists. 
+ 
+ 
+      Array: fixed size 
+      List: dynamic size 
+ 
+ 
+      List is a data structure for storing number of objects of same type. 
+ 
+ 
+      we use list when we don't know how many obects we are going to store in list ahead of time. 
+ 
+ 
+      Syntax 
+      var numbers = new List<int>(); 
+ 
+ 
+      var numbers = new List<int>() {1,2,3,4}; 
+ 
+ 
+      Methods of List class 
+ 
+ 
+      Add(), AddRange(), Remove(), RemoveAt(), IndexOf(), Contains(), Count 
+ 
+ 
+      In C# we are not allowed to modify collection inside foreach loop 
+ 
+ 
+      Dates in C#:- 
+      var dateTime = new DateTime(2024, 1, 1); 
+      var now = DateTime.Now; 
+      DateTime object in C# is immutable 
+ 
+ 
+      We can modify by using some methods and store modified values in seperate variables 
+ 
+ 
+      now.AddDays(1); // returns tomorrow time 
+ 
+ 
+      Time Span:- 
+ 
+ 
+      var timeSpan = new TimeSpan(); 
+ 
+ 
+      TimeSpan objects are immutable 
+ 
+ 
+      We can modify by using some methods and store modified values in seperate variables 
+ 
+ 
+      Strings:- 
+      In C# strings are immutable 
+ 
+ 
+      Formatting Strings 
+      ToLower() // hello world 
+      ToUpper() // HELLO WORLD 
+      Trim() - it get rid of whitespaces  
+ 
+ 
+      Searching 
+      IndexOf('a') 
+      LastIndexOf("Hello") 
+ 
+ 
+      Substrings 
+      Substring(startIndex) 
+      Substring(startIndex, length) 
+ 
+ 
+      Replacing 
+      Replace('a', '!') 
+      Replace("Naveen", "Buddhol") 
+ 
+ 
+      Null Checking 
+      String.IsNullOrEmpty(str) 
+      String.IsNullOrWhiteSpace(str) 
+       
+      Split 
+      String.Split(' ') 
+ 
+ 
+      Converting String to Numbers 
+      string s = "1234"; 
+      int i = int.Parse(s); 
+      int j = Convert.ToInt32(s); 
+ 
+ 
+      Convert Number to Strings 
+      int num = 1234; 
+ 
+ 
+      string s = i.ToString(); // "1234" 
+      string t = i.ToString("C"); // "$1,234.00" 
+      string j = i.ToString("C0"); // "$1,234" 
+ 
+ 
+      StringBuilder 
+      StringBuilder is used to manipulate Strings 
+      StringBuilder is a class defined in System.Text Namespace 
+      With this easy and fast to create and manipulate Strings 
+ 
+ 
+      StringBuilder Not for Searching 
+ 
+ 
+      It provides maipulation methods 
+      Append(), Insert(), Remove(), Replace(), Clear() 
+ 
+ 
+      var builder = new StringBuilder(); 
+ 
+ 
+      Procedural programming:- 
+      Procedural programming is programming paradigm based on procedure calls(function / method / routine / subroutine). 
+ 
+ 
+      Object oriented programming:- 
+      A programming paradigm based on objects (think in objects) 
+ 
+ 
+      Working with files and directories:- 
+      In dotnet we have namespace called System.IO and that's where all these classes that will work with files and  
+      directories are located. 
+ 
+ 
+      Some of the classes are 
+      1. File, FileInfo 
+         Both provide methods for creating, copying, deleting, moving and opening of files 
+         Both have same interfaces but only difference is that  
+         FileInfo provides instance methods 
+         File provides static methods 
+         It is more convenient to use static methods, but the problem is whenever we call static methods some security check 
+         is done by operating system to make sure current user has access to the file, incase of large number of file operations 
+         this will effect performance. So it is efficient to use FileInfo class and access all instance methods, this way  
+         security check is done only once during creation of FileInfo object 
+         Create(), Copy(), Delete(), Exists(), GetAttributes(), Move(), ReadAllText() 
+      2. Directory, DirectoryInfo 
+         Directory provides static methods 
+         DirectoryInfo provides instance methods 
+         CreateDirectory(), Delete(), Exists(), GetCurrentDirectory(), GetFiles(), Move(), GetLogicalDrives() 
+      3. Path 
+         GetDirectoryName(), GetFileName(), GetExtension(), GetTempPath() 
+Learning Path 
+ 
+ 
+1️⃣ Essentials 
+ 
+ 
+👉 C# basics 
+👉 C# intermediate: Classes, Interfaces and Object-oriented programming 
+👉 C# advanced 
+ 
+ 
+2️⃣ Mobile Development 
+ 
+ 
+👉 Xamarin Forms 
+ 
+ 
+3️⃣ Web backend Development 
+ 
+ 
+👉 Entity Framework 6 
+👉 ASP.NET MVC 5 
+ 
+ 
+4️⃣ Optional but recommended 
+ 
+ 
+👉 Double your coding speed 
+👉 Clean Code: The Art of writing beautiful c# Code 
+👉 Unit Testing C# Code 
+ 
+ 
+ 
+ 
+Introduction 
+ 
+ 
+👉 Differnce between C# and .NET 
+   C# is a programming language, .NET is a framework for building applications on windows 
+   .NET framework is not limited to C# language, there are different languages that will  
+   use .NET framework to build applications like F#, VB.NET 
+ 
+ 
+   What is .NET framework ? 
+   .NET framework consists of two components CLR(Common Language Run-time) and Class Library  
+   for building applications  
+ 
+ 
+👉 CLR (Common Language Run-time) 
+   When C# code is compiled it is converted to IL code (Intermediate Language Code) this code 
+   is independent of which device it is running on, it can run on any device(windows, linux etc) 
+   provided machine has CLR(Common Language Runtime). 
+ 
+ 
+   CLR is responsible or it translates IL code to native code which machine understands. This 
+   process of translating IL code to native code is called JIT (Just-in-time) Compilation. 
+ 
+ 
+👉 Architecture of .NET applications (Classes, Namespaces, Assemblies) 
+   .NET application is building blocks of classes which collaborate with each other and provide 
+   some functionality. 
+ 
+ 
+   Class is a container which has Data also called attributes and Methods which has behaviour 
+ 
+ 
+   Namespace is a container for related classes, for example we have Namespaces for working 
+   with graphics, we have Namespaces for working with security. 
+ 
+ 
+   In real world application as these Namespaces grow we need to seperate related Namespaces  
+   into assemblies. 
+ 
+ 
+   An Assembly could be an executable file or DLL (Dynamically Linked Library) that contains 
+   one or more Namespaces and classes. 
+ 
+ 
+   EXE file is a program that can be executed and DLL is a file that includes code and can be 
+   reused across different programs.  
+ 
+ 
+   So an application is collection of Assemblies. So when we compile our application, compiler  
+   builds one or more assemblies depending on how we partitioned our application 
+    
+👉 Summary 
+   C# is language, .NET is framework 
+   .NET framework is used by other languages also like F# and VB.NET 
+   .NET framework consists of two components 
+     1. CLR (Common Language Runtime) 
+     2. Class Library 
+    CLR does translation from IL(Intermediate Language) code to native code. 
+    With CLR C# is independent of machine, it can run on any device. 
+   .NET Architecture 
+   In .NET we have classes which is container for attributes and Methods, 
+   Namespace is container of related classes. 
+   Assembly is container of related Namespaces. 
+   An application is collection of assemblies and when we compile our application, compiler builds  
+   one or more assembiles based on how we partitioned our application. 
+ 
+ 
+🚀 First C# application 
+ 
+ 
+   Console Application - It is a simple application that does not have GUI 
+ 
+ 
+   Command to start a console application 
+   dotnet new console -o app to create new console app 
+   dotnet run to run app 
+   dotnet build to compile app 
+ 
+ 
+👉 Primitive Types and Expressions 
+ 
+ 
+   Variables and Constants -  
+   Variable is a name given to a storage location in memory 
+   Constant is an immutable value 
+ 
+ 
+   In C# to declare a Variable we start with type followed by variable, semicolon 
+   ex:- int number; 
+ 
+ 
+   C# is case sensitive 
+   ex:- int Number = 1; 
+ 
+ 
+   above two variables Number and number are different 
+   ex:- const float pi = 3.14f; 
+ 
+ 
+   we cannot use variables unless we initialize them. 
+ 
+ 
+   we cannot define constant without setting its value. 
+ 
+ 
+   identifiers/variable names cannot start with number, 1route identifier is invalid 
+   identifier cannot include space in its name, first name is not valid identifier 
+   identifier cannot be reserved keyword, like int is not valid identifier, if we want 
+   to use an identifier that clashes with reserved keyword, we can prefix with @ like 
+   @int. 
+ 
+ 
+   Naming conventions 
+   1. Camel Case - firstName 
+   2. Pascal Case - FirstName 
+   3. Hungarian Notation - strFirstName // we prefix name of the variable with data type 
+ 
+ 
+   Hungarian Notation is not used in C# 
+ 
+ 
+   In C# for local variables use Camel Case 
+   ex:- int number; 
+   for Constants use Pascal Case 
+   ex:- const int MaxZoom = 5; 
+ 
+ 
+   C# keywords are always lowercase 
+ 
+ 
+   Primitive Types - most commonly used Primitive types in C# 
+   Integral Numbers 
+   1. C# - byte, .NET - Byte, 1Byte, 0-255 
+   2. C# - short, .NET - Int16, 2Bytes, -32,768 to 32,767 
+   3. C# - int, .NET - Int32, 4Bytes, -2.1B to 2.1B 
+   4. C# - long, .NET - Int64, 8Bytes, ... 
+   Real Numbers 
+   1. C# - float, .NET - Single, 4Bytes, -3.4*10^38 to 3.4*10^38 
+   2. C# - double, .NET - Double, 8Bytes, ... 
+   3. C# - decimal, .NET - Decimal, 16Bytes, -7.9*10^28 to 7.9*10^28 
+   Character 
+   1. C# - char, .NET - Char, 2Bytes, unicode characters 
+   Boolean 
+   1. C# - bool, .NET - Boolean, 1Byte, True/False 
+ 
+ 
+   ex:- 
+   float number = 1.2f; // explicitly we need to tell compiler that it is float number 
+   by adding suffix f 
+ 
+ 
+   ex:- 
+   decimal number = 2.4m; // explicitly we need to tell compiler that it is float number 
+   by adding suffix machine 
+ 
+ 
+   Non Primitive Types 
+   1. String 
+   2. Array 
+   3. Enum 
+   4. Class 
+ 
+ 
+   Overflowing:- 
+   byte number = 255; 
+   number = number + 1; // 0 
+ 
+ 
+   byte range is 0-255 if we add 1 to number it will output 0 but not 256 since its max  
+   value is 255, this concept is called Overflowing 
+ 
+ 
+   Scope:-  
+   Scope is nothing but accesibility of a variable or constant 
+    
+   Variables and Constants :-  
+            byte number = 4; 
+            int count = 10; 
+            float price = 20.45f; 
+            decimal stock = 154.2166m; 
+            char charcter = 'n'; 
+            string firstName = "naveen"; 
+            bool isWorking = false; 
+ 
+ 
+   we can define variables with var keyword, with this system will identify the date type 
+   of variable based on value. 
+            var pokemon = "Pickachu"; 
+ 
+ 
+   Type Conversion:- 
+   1. implicit type Conversion 
+      byte b = 1; 
+      int i = b; 
+   2. explicit type Conversion 
+      float f = 14.25f; 
+      int i = (int)f; 
+   3. Conversion between non compatible types 
+      string s = "231"; 
+      int i = (int)s; // won't compile  
+      int i = Convert.ToInt32(s); 
+      int j = int.Parse(s); 
+       
+   Operators:- 
+   1. Arithmetic Operators (+,-,*,/,%, increment, decrement) 
+   2. Logical Operators (&&, ||, !) 
+   3. Comparison Operators (==, <, >, !=, <=, >=) 
+   4. Assignment Operators (=, +=, -=, *=, /=) 
+   5. Bitwise Operators (&, |) 
+ 
+ 
+   Comments are written for whys, hows, constraints etc, but not whats 
+ 
+ 
+   🚀 Non Primitive Types 
+ 
+ 
+      Classes:- 
+      Classes are building blocks of application, 
+      Class combines related variables (fields) and functions (methods) 
+      Ex:- 
+      class Person { 
+         Name: string; 
+         Age: byte; 
+         Height: float; 
+         Weight: byte; 
+         Walk(); 
+         Talk(); 
+         Eat(); 
+         Sleep(); 
+      } 
+      Class is a type or blueprint from which we create objects. 
+      Object is an instance of class. 
+ 
+ 
+      Declaring class in C#; 
+ 
+ 
+      public class Person { 
+         public string Name; 
+ 
+ 
+         public void Introduce() { 
+            Console.WriteLine("Hi, my name is "+ Name); 
+         } 
+      } 
+ 
+ 
+      public class Calculator  
+      { 
+         public int Add(int a, int b) 
+         { 
+            return a + b; 
+         } 
+      } 
+ 
+ 
+      Creating objects :- 
+      Person person = new Person(); 
+ 
+ 
+      we can also create objects as follows 
+      var person = new Person(); 
+      person.Name = "Naveen"; 
+      person.Introduce(); 
+ 
+ 
+      Static Modifier 
+      public class Calculator  
+      { 
+         public static int Add(int a, int b) 
+         { 
+            return a + b; 
+         } 
+      } 
+ 
+ 
+      with static Modifier we need not to create object, we can directly access 
+      class methods as follows. 
+ 
+ 
+      int sum = Calculator.Add(4,6); 
+ 
+ 
+      why do we need static modifier ? 
+      when we don't have static modifier, Add() method will be available in memory 
+      of each object. 
+      With static modifier Add() method will be only in one place in memory and that 
+      is Calculator class itself. 
+      We use static modifier concept when we need single instance of method should  
+      available in memory.  
+      Static member of the class whether it is field or method will be accesible from  
+      class itself, not an object. 
+ 
+ 
+ 
+ 
+      Structs:- 
+      In C# we also another type called structure which is similar to class 
+       
+      public struct RgbColor { 
+         public int Red; 
+         public int Green; 
+         public int Blue; 
+      } 
+ 
+ 
+      99% we use classes for defining types, it is recommended to use struct only for  
+      light weight objects like RgbColor or Point which has X and Y. 
+ 
+ 
+      Arrays:- 
+      Declaring arrays in C#, an array is object 
+      int[] numbers = new int[3]; 
+ 
+ 
+      when we declare an array all the elements are set to default value of that datatype, 
+      in this case 0. 
+      in case of boolen it will be false.  
+      numbers[0] = 1; 
+      numbers[1] = 2; 
+      numbers[2] = 3; 
+ 
+ 
+      int[] numbers = new int[3]{1,2,3}; 
+ 
+ 
+      var flags = new bool[3]; 
+ 
+ 
+      Strings:- 
+      sequence of characters enclosed in ""; 
+ 
+ 
+      string firstName = "Naveen"; 
+      string lastName = "Buddhol"; 
+ 
+ 
+      string name = firstName + " " + lastName; 
+ 
+ 
+      string name =  string.Format("{0} {1}", firstName, lastName) 
+ 
+ 
+      string list = string.Join(",", numbers); 
+ 
+ 
+      char firstChar = name[0]; 
+ 
+ 
+      Strings are immutable, once we create them, we can't change them. 
+ 
+ 
+      Escape characters in C# 
+      \n - newline 
+      \t - tab 
+      \\ - backslash 
+      \' - single quotation mark 
+      \" - double quotation mark 
+ 
+ 
+      Verbatim Strings 
+ 
+ 
+      string path = "c:\\projects\\project1\\folder1"; 
+      string path = @"c:\projects\project1\folder1"; // verbatim strings 
+ 
+ 
+      Enums:- 
+      An Enum is data type that represent set of name/value pairs (constans) 
+       
+      const int RegularAirMail = 1; 
+      const int RegisteredAirMail = 2; 
+      const int Express = 3; 
+ 
+ 
+      public enum ShippingMethod { 
+         RegularAirMail = 1, 
+         RegisteredAirMail = 2, 
+         Express = 3 
+      } 
+ 
+ 
+      use enum where we have number of related constants, instead of declaring  
+      multiple constants declare an enum 
+ 
+ 
+      var method = ShippingMethod.Express; 
+ 
+ 
+      parsing in programming is taking string and converting to required datatype 
+ 
+ 
+      Reference Types and Value Types:- 
+      Different data types we have seen in C# are 
+      Primitive Types 
+      -byte 
+      -short 
+      -int 
+      -long 
+      -float 
+      -double 
+      -decimal 
+      -char 
+      -bool 
+      Non Primitive Types 
+      -string 
+      -class 
+      -struct 
+      -enum 
+      -arrays 
+ 
+ 
+      Essentially we have two types from which we create new types, 
+      every type we learned so far is either a Structure or Class 
+      - Structures 
+        All Primitive types are structures, they are internally defined as structures in.NET 
+        we can also create custom structures. 
+ 
+ 
+        Structures are value types 
+        Allocated on stack 
+        Memory allocation done automatically 
+        removed immediately when out of scope 
+ 
+ 
+        In Value types value is copied and variables are independent. 
+      - Classes 
+        Arrays, Strings are classes, 
+        we can also create custom classes 
+  
+        Classes are reference types 
+        we need to allocate memory using new operator 
+        memory allocated on heap 
+        Garbage collected by CLR (Common Language Run-time) 
+ 
+ 
+        In Reference types address is copied, change in value of one variable will effect other 
+ 
+ 
+   👉 Control Flow 
+ 
+ 
+      Conditional Statements:- 
+      In C# we have two types of conditional Statements 
+ 
+ 
+      1. if/else Statements 
+      2. switch case Statements 
+ 
+ 
+      and we also have conditional operator 
+      a ? b : c 
+ 
+ 
+      Iteration Statements:- 
+      In C# we have four iteration Statements 
+ 
+ 
+      1. For loops 
+      2. Foreach loops // is used to iterate over innumerable object (list or array nature, like string) 
+      3. While loops 
+      4. Do-While loops 
+ 
+ 
+      foreach(var number in numbers){ 
+         ... 
+      } 
+ 
+ 
+      Break and Continue:- 
+      Break: jumps out of the loops 
+      continue: skips current iteration and jumps to next iteration 
+ 
+ 
+      Random Class:- 
+      used to generate random number 
+ 
+ 
+      Arrays and Lists:- 
+      Multi Dimensional Arrays 
+      We have two types of multi dimensional arrays 
+      1. Rectangular (each row has exact same number of columns) 
+      2. Jagged (number of columns in each row can be different) 
+ 
+ 
+      Syntax to declare 2D array 
+ 
+ 
+      var matrix = new int[3,5]; 
+ 
+ 
+      var matrix = new int[3,5] {{1,2,3,4,5},{6,7,8,9,10},{11,12,13,14,15}}; 
+ 
+ 
+      var element = matrix[0, 0]; // to access element in 2D array 
+ 
+ 
+      var colors = new int[3,5,4]; 
+ 
+ 
+      Syntax to declare Jagged array 
+ 
+ 
+      var array = new int[3][]; 
+      array[0] = new int[4]; 
+      array[0] = new int[5]; 
+      array[0] = new int[3]; 
+ 
+ 
+      In C# Array type is a class which looks as follows 
+ 
+ 
+      class Array { 
+         Length; // field 
+         Clear(); // method 
+         Copy(); // method 
+         IndexOf(); // method 
+         Reverse(); // method 
+         Sort();// method 
+      }   
+ 
+ 
+      we can access Length property on array where as other properties or methods are 
+      accessed on Array class. 
+ 
+ 
+      If method/field is accessed on class itself means it is a static method, otherwise it 
+      is not static and accessed on object itself. 
+ 
+ 
+      Lists:- 
+      In C# arrays are of fixed size, once size is assigned to array we cannot change 
+      But there are situations we need to work with number of objects but not know that number 
+      ahead of time, thats were we use lists. 
+ 
+ 
+      Array: fixed size 
+      List: dynamic size 
+ 
+ 
+      List is a data structure for storing number of objects of same type. 
+ 
+ 
+      we use list when we don't know how many obects we are going to store in list ahead of time. 
+ 
+ 
+      Syntax 
+      var numbers = new List<int>(); 
+ 
+ 
+      var numbers = new List<int>() {1,2,3,4}; 
+ 
+ 
+      Methods of List class 
+ 
+ 
+      Add(), AddRange(), Remove(), RemoveAt(), IndexOf(), Contains(), Count 
+ 
+ 
+      In C# we are not allowed to modify collection inside foreach loop 
+ 
+ 
+      Dates in C#:- 
+      var dateTime = new DateTime(2024, 1, 1); 
+      var now = DateTime.Now; 
+      DateTime object in C# is immutable 
+ 
+ 
+      We can modify by using some methods and store modified values in seperate variables 
+ 
+ 
+      now.AddDays(1); // returns tomorrow time 
+ 
+ 
+      Time Span:- 
+ 
+ 
+      var timeSpan = new TimeSpan(); 
+ 
+ 
+      TimeSpan objects are immutable 
+ 
+ 
+      We can modify by using some methods and store modified values in seperate variables 
+ 
+ 
+      Strings:- 
+      In C# strings are immutable 
+ 
+ 
+      Formatting Strings 
+      ToLower() // hello world 
+      ToUpper() // HELLO WORLD 
+      Trim() - it get rid of whitespaces  
+ 
+ 
+      Searching 
+      IndexOf('a') 
+      LastIndexOf("Hello") 
+ 
+ 
+      Substrings 
+      Substring(startIndex) 
+      Substring(startIndex, length) 
+ 
+ 
+      Replacing 
+      Replace('a', '!') 
+      Replace("Naveen", "Buddhol") 
+ 
+ 
+      Null Checking 
+      String.IsNullOrEmpty(str) 
+      String.IsNullOrWhiteSpace(str) 
+       
+      Split 
+      String.Split(' ') 
+ 
+ 
+      Converting String to Numbers 
+      string s = "1234"; 
+      int i = int.Parse(s); 
+      int j = Convert.ToInt32(s); 
+ 
+ 
+      Convert Number to Strings 
+      int num = 1234; 
+ 
+ 
+      string s = i.ToString(); // "1234" 
+      string t = i.ToString("C"); // "$1,234.00" 
+      string j = i.ToString("C0"); // "$1,234" 
+ 
+ 
+      StringBuilder 
+      StringBuilder is used to manipulate Strings 
+      StringBuilder is a class defined in System.Text Namespace 
+      With this easy and fast to create and manipulate Strings 
+ 
+ 
+      StringBuilder Not for Searching 
+ 
+ 
+      It provides maipulation methods 
+      Append(), Insert(), Remove(), Replace(), Clear() 
+ 
+ 
+      var builder = new StringBuilder(); 
+ 
+ 
+      Procedural programming:- 
+      Procedural programming is programming paradigm based on procedure calls(function / method / routine / subroutine). 
+ 
+ 
+      Object oriented programming:- 
+      A programming paradigm based on objects (think in objects) 
+ 
+ 
+      Working with files and directories:- 
+      In dotnet we have namespace called System.IO and that's where all these classes that will work with files and  
+      directories are located. 
+ 
+ 
+      Some of the classes are 
+      1. File, FileInfo 
+         Both provide methods for creating, copying, deleting, moving and opening of files 
+         Both have same interfaces but only difference is that  
+         FileInfo provides instance methods 
+         File provides static methods 
+         It is more convenient to use static methods, but the problem is whenever we call static methods some security check 
+         is done by operating system to make sure current user has access to the file, incase of large number of file operations 
+         this will effect performance. So it is efficient to use FileInfo class and access all instance methods, this way  
+         security check is done only once during creation of FileInfo object 
+         Create(), Copy(), Delete(), Exists(), GetAttributes(), Move(), ReadAllText() 
+      2. Directory, DirectoryInfo 
+         Directory provides static methods 
+         DirectoryInfo provides instance methods 
+         CreateDirectory(), Delete(), Exists(), GetCurrentDirectory(), GetFiles(), Move(), GetLogicalDrives() 
+      3. Path 
+         GetDirectoryName(), GetFileName(), GetExtension(), GetTempPath() 
+
